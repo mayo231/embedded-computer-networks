@@ -14,7 +14,9 @@
 #include "gpio.h"
 
 // map the led to gpio pins
-gpio_pin_t led1 = {PA_8,  GPIOA, GPIO_PIN_8};
+gpio_pin_t ledred = {PI_1, GPIOI, GPIO_PIN_1};
+gpio_pin_t ledamber = {PB_14,  GPIOB, GPIO_PIN_14};
+gpio_pin_t ledgreen = {PB_15,  GPIOB, GPIO_PIN_15};
 
 // this is the main method
 int main()
@@ -24,4 +26,34 @@ int main()
   HAL_Init();
   init_sysclk_216MHz();
 
+	// initialise the gpio pins
+  init_gpio(ledred, OUTPUT);
+	init_gpio(ledamber, OUTPUT);
+	init_gpio(ledgreen, OUTPUT);
+	
+	  // loop forever ...
+	
+	toggle_gpio(ledamber);
+	HAL_Delay(2000);
+  
+	while(1)
+  {
+		
+		toggle_gpio(ledred);
+		toggle_gpio(ledamber);
+		HAL_Delay(5000);
+		
+		toggle_gpio(ledamber);
+		HAL_Delay(1000);
+		
+		toggle_gpio(ledred);
+		toggle_gpio(ledamber);
+		toggle_gpio(ledgreen);
+		HAL_Delay(5000);
+		
+		toggle_gpio(ledgreen);
+		toggle_gpio(ledamber);
+		HAL_Delay(2000);
+		
+	}
 }
