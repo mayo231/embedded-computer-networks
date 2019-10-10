@@ -21,7 +21,7 @@
 // map the led to GPIO PI_1 (the inbuilt led) and the push button to PI_11 
 // (the user button)
 gpio_pin_t led = {PI_1, GPIOI, GPIO_PIN_1};
-gpio_pin_t pb1 = {PI_11, GPIOI, GPIO_PIN_11};
+gpio_pin_t pb1 = {PA_8, GPIOA, GPIO_PIN_8};
 
 // this is the main method
 int main()
@@ -42,12 +42,7 @@ int main()
     if(read_gpio(pb1))
     {
       // turn the led on on the gpio pin
-      write_gpio(led, HIGH);
-    }
-    else
-    {
-      // turn the led off on the gpio pin
-      write_gpio(led, LOW);
+      toggle_gpio(led);
     }
   }
 }
