@@ -15,9 +15,17 @@
 #include "pinmappings.h"
 #include "clock.h"
 #include "stm32746g_discovery_lcd.h"
+#include "gpio.h"
+#include "adc.h"
 
 // LCD DEFINES
+#define BOARDER     "****************************"
 
+const char * welcome_message[2] = 
+{
+  "*   Temperature Reading!   *",
+  "*         Joe Maye         *"
+};
 // CODE
 
 // this is the main method
