@@ -35,7 +35,7 @@ osMailQId  mail_box;
 // HARDWARE DEFINES
 
 // led is on PI 1 (this is the inbuilt led)
-gpio_pin_t led1 = {PI_1, GPIOI, GPIO_PIN_1};
+gpio_pin_t led1 = {PA_8, GPIOA, GPIO_PIN_8};
 
 // THREAD INITIALISATION
 
